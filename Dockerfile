@@ -3,7 +3,8 @@ FROM ubuntu AS downloader
 ENV DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /download
-RUN apt install -y curl unzip && \
+RUN apt update && \
+    apt install -y curl unzip && \
     curl -L -o coredns-linux-amd64.zip https://ci.appveyor.com/api/buildjobs/ddqnbjdtnodscia7/artifacts/distrib%2Fcoredns-linux-amd64.zip && \
     unzip coredns-linux-amd64.zip
 
